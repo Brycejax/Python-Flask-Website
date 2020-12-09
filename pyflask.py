@@ -6,7 +6,9 @@
 #------------------------------------------------------------------
 
 #importing flask object from flask library
-from flask import Flask
+#render template will import am html file into our function
+#the html files must be stored in a folder called 'templates'
+from flask import Flask, render_template
 
 # creating an instance '__name__" = "__main__"
 app = Flask(__name__)
@@ -16,12 +18,12 @@ app = Flask(__name__)
 
 #this function will map its contents to the @app.route
 def home():
-    return "Website content goes here"
+    return render_template("templates/home.html")
 
 @app.route('/about/')
 
 def about():
-    return "About Page goes here!"
+    return render_template("templates/about.html")
 
 if __name__=="__main__":
     app.run(debug=True)
